@@ -33,6 +33,14 @@ pipeline {
                 }
             }
         }
+        stage('Send Email Notification') {
+            steps {
+                mail to: 'habibbasha.abdul@gmail.com',
+                     subject: 'Automated Release Notes Generated',
+                     body: '''Release notes have been generated and committed to the uat branch.
+Please check RELEASE_NOTES.md for details.''' 
+            }
+        }
     }
 }
 
